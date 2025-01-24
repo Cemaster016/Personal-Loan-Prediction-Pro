@@ -62,4 +62,5 @@ To enable bank staff to make predictions, we are deploying the model via a user-
   - `app.py`: Backend logic.  
   - `templates/`: HTML files for the frontend.  
   - `static/`: CSS and other assets for styling.  
-- **Deployment Configurations**: Render/Heroku deployment scripts.  
+- **Deployment Configurations**: Render deployment scripts.
+- **App link:** https://personal-loan-prediction-pro-4.onrender.com/
