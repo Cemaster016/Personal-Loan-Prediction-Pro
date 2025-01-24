@@ -1,9 +1,7 @@
 from flask import Flask, render_template, request, jsonify
-import pickle
-import numpy as np
 import joblib
 import pandas as pd
-import os  # Import os to handle environment variables
+import os
 
 app = Flask(__name__)
 
@@ -14,7 +12,6 @@ preprocessor = joblib.load("preprocessor.pkl")
 @app.route('/')
 def home():
     return render_template('index.html')
-
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -62,14 +59,13 @@ def predict():
         prediction = model.predict(transformed_input)[0]
         result = "Eligible for Loan" if prediction == 1 else "Not Eligible for Loan"
 
-        return jsonify({'result': result})
+        # Render the result page
+        return render_template('result.html', result=result)
 
     except Exception as e:
         error_message = f"Error: {str(e)}"
         return jsonify({'error': error_message}), 400
 
-
 if __name__ == "__main__":
-    # Use the PORT environment variable provided by Render or default to 5000
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=True)
