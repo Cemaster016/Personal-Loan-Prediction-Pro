@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Loan Predictor</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="icon" href="/static/favicon.ico">
+</head>
+<body>
+  <header>
+    <h1>Welcome to AllLife Bank's Loan Predictor</h1>
+    <p>Your tool to identify eligible customers for personal loans.</p>
+  </header>
+
+  <main>
+    <section class="description">
+      <img src="/static/Capture.PNG" alt="Bank Overview">
+      <p>
+        At AllLife Bank, we value our customers and aim to provide personalized solutions. This tool is designed to help 
+        our marketing team predict customers who are most likely to opt for personal loans based on their profile.
+        Simply enter customer details below and get instant predictions!
+      </p>
+    </section>
+
+    <section class="form-container">
+      <form action="/predict" method="POST">
+        <div class="form-group">
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="Age" required placeholder="e.g., 25" min="18" max="100">
+        </div>
+        <div class="form-group">
+          <label for="experience">Experience (Years):</label>
+          <input type="number" id="experience" name="Experience" required placeholder="e.g., 3" min="0" max="40">
+        </div>
+        <div class="form-group">
+          <label for="income">Annual Income (in $1000):</label>
+          <input type="number" id="income" name="Income" required placeholder="e.g., 75" min="0">
+        </div>
+        <div class="form-group">
+          <label for="family">Family Size:</label>
+          <input type="number" id="family" name="Family" required placeholder="e.g., 4" min="1" max="10">
+        </div>
+        <div class="form-group">
+          <label for="ccavg">Credit Card Average Spending (in $1000):</label>
+          <input type="number" id="ccavg" name="CCAvg" required placeholder="e.g., 1.5" step="0.1">
+        </div>
+        <div class="form-group">
+          <label for="education">Education Level:</label>
+          <select id="education" name="Education" required>
+            <option value="1">Undergraduate</option>
+            <option value="2">Graduate</option>
+            <option value="3">Advanced/Professional</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mortgage">Mortgage (in $1000):</label>
+          <input type="number" id="mortgage" name="Mortgage" required placeholder="e.g., 0">
+        </div>
+        <div class="form-group">
+          <label for="securities_account">Securities Account:</label>
+          <select id="securities_account" name="Securities_Account" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cd_account">CD Account:</label>
+          <select id="cd_account" name="CD_Account" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="online">Online Banking:</label>
+          <select id="online" name="Online" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="creditcard">Credit Card (Issued by Other Banks):</label>
+          <select id="creditcard" name="CreditCard" required>
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Get Prediction</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Powered by AllLife Bank AI Solutions | Transforming Customer Insights</p>
+  </footer>
+</body>
+</html>
